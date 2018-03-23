@@ -1,0 +1,11 @@
+id,first_name,last_name,gender,birthday,email,phone
+1,naruto,uzumaki,male,2000-01-01,konoha@ex.com,14045
+2,sakura,haruno,female,2000-02-02,konoha1@ex.com,14045
+3,sasuke,uchiha,male,2000-03-03,konoha2@ex.com,14045
+4,hinata,byakugan,female,2001-01-01,konoha3@ex.com,14022
+5,rock,lee,male,1998-12-12,konoha4@ex.com,14022
+6,ryu,ryuga,male,1998-11-11,konoha5@ex.com,14022
+7,kakashi,hatake,male,1975-05-05,konoha6@ex.com,14001
+8,aoi,guy,female,1975-06-06,konoha7@ex.com,14001
+9,itachi,uchiha,male,1988-04-04,konoha8@ex.com,14001
+10,kisame,haidan,male,1989-07-07,konoha9@ex.com,14001
