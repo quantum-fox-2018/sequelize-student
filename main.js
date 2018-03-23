@@ -41,25 +41,44 @@ const db = require('./models');
 // })
 
 //VALIDATION EMAIL
-// db.Student.update({
-//   email: 'sally2@gmail.co.id'
-// },{
-//   where: {id: 4}
+// db.Student.findOne({
+//   where: {id: 5}
 // })
 // .then(student => {
-//   console.log(student);
-// })
-// .catch(error => {
-//   console.log(error.message);
+//   student.updateAttributes({
+//     email: 'sally2gmail.co.id'
+//   })
+//   .then(result => {
+//     console.log(result.dataValues);
+//   })
+//   .catch(error => {
+//     console.log(error.message);
+//   })
 // })
 
-//VALIDATION HEIGHT
+//VALIDATION PHONE
 // db.Student.findOne({
 //   where: {id: 2}
 // })
 // .then(student => {
 //   student.updateAttributes({
 //     height: 170
+//   })
+//   .then(result => {
+//     console.log(result.dataValues);
+//   })
+//   .catch(error => {
+//     console.log(error.message);
+//   })
+// })
+
+// VALIDATION PHONE
+// db.Student.findOne({
+//   where: {id: 2}
+// })
+// .then(student => {
+//   student.updateAttributes({
+//     phone: '1234567890'
 //   })
 //   .then(result => {
 //     console.log(result.dataValues);

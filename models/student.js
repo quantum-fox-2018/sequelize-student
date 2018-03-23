@@ -12,22 +12,36 @@ module.exports = (sequelize, DataTypes) => {
           args: false,
           msg: 'Invalid email addresss!'
         },
-        isUniqueEmail: function(email) {
-          Student.findAll({
-            where: {email: value}
-          })
-          .then(students => {
-            if(students.length < 0) {
-              throw new Error('Email is already used!')
+        isUniqueEmail: function(value){
+          Student.findAll({where:{email:value}})
+          .then(results => {
+            if (results.length > 0) {
+              throw new Error('Email already taken!');
             }
           })
           .catch(error => {
-            throw new Error('Invalid email address!')
+            throw new Error('Invalid email address');
           })
         }
       }
     },
-    phone: DataTypes.STRING,
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [10, 13],
+          msg: 'Phone length must be 10-13'
+        },
+        isAlpha: {
+          args: false,
+          msg: 'Phone not allow letters'
+        },
+        isAlphanumeric: {
+          args: false,
+          msg: 'Phone not allow alphanumeric'
+        }
+      }
+    },
     height: {
       type: DataTypes.INTEGER,
       validate: {
