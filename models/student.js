@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     height: {
-      type: DataType.INTEGER,
+      type: DataTypes.INTEGER,
       validate: {
         isHigher(value){
           if(value < 150){

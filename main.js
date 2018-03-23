@@ -25,3 +25,12 @@ var all = model.Student.getFemaleStudent(function(students){
         console.log(student.full_name);
     });
 })
+
+model.Student.findOne({
+    where: {id: 10}
+})
+.then(function(student){
+    student.updateAttributes({
+        height: 130
+    })
+})
