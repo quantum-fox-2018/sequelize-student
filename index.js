@@ -16,4 +16,7 @@ switch(command[2]) {
     case 'getAge':
     Controller.getAge(input.command1);
     break;
+    case 'getFemaleStudent':
+    Controller.getFemaleStudent();
+    break;
 }

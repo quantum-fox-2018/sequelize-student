@@ -5,10 +5,43 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     gender: DataTypes.STRING,
     birthday: DataTypes.DATEONLY,
-    email: DataTypes.STRING,
-    phone: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: {
+          arg: true,
+          msg: `Please check again your email format`
+        }
+      }
+    },
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          arg: [10, 13],
+          msg: `phone length must be 10 -13`
+        },
+        isAlpha: {
+          arg: false,
+          msg: `phone not allow letters`
+        },
+        isAlphanumeric: {
+          arg: false,
+          msg: `phone not allow alphanumeric`
+        }
+      }
+    },
+    height: {
+      type: DataTypes.INTEGER,
+      validate: {
+        max: {
+          arg: 150,
+          msg: `height must be greater than 150`
+        }
+      }
+    }
   }, {});
-  Student.associate = function(models) {
+  Student.associate = function (models) {
     // associations can be defined here
   };
   // get full name
@@ -23,6 +56,21 @@ module.exports = (sequelize, DataTypes) => {
 
     return currentYear - birthYear;
   }
-  
+  // get female student
+  Student.getFemaleStudents = function (callback) {
+    Student.findAll({
+        where: {
+          gender: 'female'
+        }
+      })
+      .then(data_student => {
+        callback(data_student, false);
+      })
+      .catch(err => {
+        callback(err.message, true);
+      })
+  }
+  // 
+
   return Student;
 };
