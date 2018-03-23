@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isAlphanumeric: false,
-        isNumeric: true,
+        isAlpha: false,
         isLength(phone_num){
           if(phone_num < 10 || phone_num > 13){
             throw new Error('phone length must be 10 - 13');
