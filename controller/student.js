@@ -36,6 +36,30 @@ class ControllerStudent {
             console.log(err)
         })
     }
+
+    static add(fname,lname,gender,birth,email,phone,height){
+        Student.create({
+            first_name: fname,
+            last_name: lname,
+            gender: gender,
+            birthday: birth,
+            email: email,
+            phone: phone,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            height: height
+        })
+        .then(row => {
+            console.log(`DATA BERHASIL DIMASUKKAN !`)
+            process.exit()
+        })
+        .catch(err => {
+            console.log(err.message)
+            process.exit()
+        })
+    }
+
+    
 }
 
 module.exports = ControllerStudent;
